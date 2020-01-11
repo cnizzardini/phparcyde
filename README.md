@@ -12,6 +12,11 @@ A static site generator designed for simplicity.
 
 ## Testing
 
+```php
+# from project root run
+vendor/bin/phpunit
+```
+
 <!--phparcyde
 {
     template: '',
