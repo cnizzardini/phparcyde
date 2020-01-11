@@ -4,20 +4,20 @@ namespace Phparcyde\Configuration;
 
 use Phparcyde\Exception as Fatal;
 
-class GitHttpConfiguration
+/**
+ * Configuration for Git Server.
+ * - $repository must be a valid HTTP, HTTPS, or SSH server
+ */
+class GitServerConfiguration
 {
-    private $url;
+    private $repository;
     private $localDirectory;
     private $branch = 'master';
 
     public function exceptionHandler() : void
     {
-        if (!filter_var($this->url,FILTER_VALIDATE_URL)) {
-            throw new Fatal\UrlException('Invalid git URL');
-        }
-
-        if (file_exists($this->localDirectory)) {
-            throw new Fatal\DirectoryPathException('Invalid local directory');
+        if (!is_dir($this->localDirectory)) {
+            throw new Fatal\DirectoryPathException('Invalid local directory: ' . $this->localDirectory);
         }
 
         if (empty($this->branch)) {
@@ -25,14 +25,14 @@ class GitHttpConfiguration
         }
     }
 
-    public function getUrl()
+    public function getRepository()
     {
-        return $this->url;
+        return $this->repository;
     }
 
-    public function setUrl(string $url) : self
+    public function setRepository(string $repository) : self
     {
-        $this->url = $url;
+        $this->repository = $repository;
         return $this;
     }
 
