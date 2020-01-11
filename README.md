@@ -1,6 +1,6 @@
 # PHPARCYDE - STATIC SITE GENERATOR
 
-A static site generator designed for simplicity.
+A static site generator designed for simplicity. Pronounced far-side.
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
